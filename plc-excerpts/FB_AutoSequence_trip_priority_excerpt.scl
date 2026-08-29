@@ -1,0 +1,37 @@
+(*
+  Selected excerpt from FB_AutoSequence [FB6].
+  Transcribed from the retained TIA Portal V20 implementation view.
+  This is not a complete block export.
+*)
+
+// A trip has priority over normal transitions. Operator Stop is controlled.
+IF #iAnyTrip THEN
+    #stStep := #cStepFault;
+ELSIF #iStopPulse AND (#stStep <> #cStepFault) THEN
+    #stStep := #cStepIdle;
+ELSE
+    CASE #stStep OF
+        0:
+            IF #iAutoActive
+               AND #iStartPulse
+               AND #iSystemReady
+               AND #iPermissive.AutoStart THEN
+                #stStep := #cStepPrecheck;
+            END_IF;
+
+        10:
+            IF NOT #iAutoActive THEN
+                #stStep := #cStepIdle;
+            ELSIF #stPrecheckTimer.Q THEN
+                #stStep := #cStepFillT101;
+            END_IF;
+
+        20:
+            IF #iTank[1].LevelPct < #iConfig.TankFillTargetPct[1] THEN
+                #qRequests.ValveOpen[1] := TRUE;
+            END_IF;
+
+            IF (#iTank[1].LevelPct >= #iConfig.TankFillTargetPct[1])
+               AND #iValve[1].Closed THEN
+                #stStep := #cStepT101Ready;
+            END_IF;

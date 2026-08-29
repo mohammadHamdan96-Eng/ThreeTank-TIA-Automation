@@ -1,0 +1,56 @@
+(*
+  Selected excerpt from FB_AlarmManager [FB7].
+  Transcribed from the retained TIA Portal V20 implementation view.
+  This is not a complete block export.
+*)
+
+#qAlarm.ResetAccepted := FALSE;
+#qAlarm.ResetRejected := FALSE;
+
+IF #iInit THEN
+    #stLatchedWord := DWORD#16#00000000;
+    #stFirstOutCode := 0;
+ELSE
+    IF #iResetRequest THEN
+        IF #rawTripWord = DWORD#16#00000000 THEN
+            #stLatchedWord := DWORD#16#00000000;
+            #stFirstOutCode := 0;
+            #qAlarm.ResetAccepted := TRUE;
+        ELSE
+            #qAlarm.ResetRejected := TRUE;
+        END_IF;
+    END_IF;
+
+    IF (#stLatchedWord = DWORD#16#00000000)
+       AND (#rawTripWord <> DWORD#16#00000000) THEN
+        IF (#rawTripWord AND DWORD#16#00000001) <> DWORD#16#00000000 THEN
+            #stFirstOutCode := 1001;
+        ELSIF (#rawTripWord AND DWORD#16#00000002) <> DWORD#16#00000000 THEN
+            #stFirstOutCode := 1002;
+        ELSIF (#rawTripWord AND DWORD#16#00000004) <> DWORD#16#00000000 THEN
+            #stFirstOutCode := 1003;
+        ELSIF (#rawTripWord AND DWORD#16#00000008) <> DWORD#16#00000000 THEN
+            #stFirstOutCode := 1101;
+        ELSIF (#rawTripWord AND DWORD#16#00000010) <> DWORD#16#00000000 THEN
+            #stFirstOutCode := 1102;
+        ELSIF (#rawTripWord AND DWORD#16#00000040) <> DWORD#16#00000000 THEN
+            #stFirstOutCode := 1201;
+        ELSIF (#rawTripWord AND DWORD#16#00000080) <> DWORD#16#00000000 THEN
+            #stFirstOutCode := 1202;
+        ELSIF (#rawTripWord AND DWORD#16#00000200) <> DWORD#16#00000000 THEN
+            #stFirstOutCode := 1301;
+        ELSIF (#rawTripWord AND DWORD#16#00000400) <> DWORD#16#00000000 THEN
+            #stFirstOutCode := 1302;
+        ELSIF (#rawTripWord AND DWORD#16#00001000) <> DWORD#16#00000000 THEN
+            #stFirstOutCode := 1401;
+        ELSIF (#rawTripWord AND DWORD#16#00002000) <> DWORD#16#00000000 THEN
+            #stFirstOutCode := 1402;
+        ELSIF (#rawTripWord AND DWORD#16#00004000) <> DWORD#16#00000000 THEN
+            #stFirstOutCode := 1403;
+        ELSIF (#rawTripWord AND DWORD#16#00008000) <> DWORD#16#00000000 THEN
+            #stFirstOutCode := 1501;
+        ELSIF (#rawTripWord AND DWORD#16#00010000) <> DWORD#16#00000000 THEN
+            #stFirstOutCode := 1502;
+        END_IF;
+    END_IF;
+END_IF;
