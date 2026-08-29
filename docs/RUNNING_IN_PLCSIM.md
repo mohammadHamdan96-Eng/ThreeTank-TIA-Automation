@@ -45,3 +45,6 @@ The simulation DB contains deliberate injection points used by the FAT, includin
 - `DB_Alarms.Alarm.AnyTrip`
 - `DB_Alarms.Alarm.FirstOutCode`
 - tank level values
+
+> **PLCSIM note:** The CPU configuration uses access protection.  
+> When TIA Portal requests the CPU password during download to PLCSIM, use: `YOUR_PASSWORD_HERE`
