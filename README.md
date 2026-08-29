@@ -10,9 +10,11 @@ The TIA version was redesigned rather than translated block-for-block from CODES
   <img src="media/hmi/automatic-cycle-preview.gif" alt="ThreeTank WinCC process preview showing fill, cascade transfer and trend evidence" width="88%">
 </p>
 
-<p align="center">
-  <strong>WinCC process preview</strong> · <a href="media/video/ThreeTank_Automatic_Cycle_Demo.mp4">▶ Full automatic-cycle video</a>
-</p>
+### Automatic cycle demonstration
+
+https://github.com/user-attachments/assets/7d388609-00ff-49f6-bcd9-df89bcfbe85c
+
+
 
 **Engineering stack:** `TIA Portal V20` · `CPU 1511C-1 PN` · `WinCC Unified` · `LAD/FBD/SCL` · `UDT/FB/FC/DB architecture` · `ET 200SP` · `PROFINET` · `PROFIBUS DP` · `SINAMICS G120C` · `Startdrive` · `SinaSpeed` · `OPC UA` · `PLCSIM` · `FAT`
 
