@@ -47,4 +47,4 @@ The simulation DB contains deliberate injection points used by the FAT, includin
 - tank level values
 
 > **PLCSIM note:** The CPU configuration uses access protection.  
-> When TIA Portal requests the CPU password during download to PLCSIM, use: `YOUR_PASSWORD_HERE`
+> When TIA Portal requests the CPU password during download to PLCSIM, use: ThreeTank2026!
