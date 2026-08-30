@@ -12,7 +12,11 @@ The TIA version was redesigned rather than translated block-for-block from CODES
 
 ### Automatic cycle demonstration
 
-https://github.com/user-attachments/assets/7d388609-00ff-49f6-bcd9-df89bcfbe85c
+
+
+https://github.com/user-attachments/assets/04234072-e123-479f-b864-2cfa0d33f575
+
+
 
 
 
