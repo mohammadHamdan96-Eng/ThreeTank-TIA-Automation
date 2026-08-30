@@ -602,6 +602,7 @@ The ThreeTank `SafetyCircuitOK` / `TripSafetyCircuit` path is a **simulated stan
 ## Related work
 
 - [ThreeTank CODESYS V1](https://github.com/mohammadHamdan96-Eng/ThreeTank-CODESYS-WaterTransfer) — original process-control baseline before the TIA redesign
+- [Elevator-TIA-Safety](https://github.com/mohammadHamdan96-Eng/Elevator-TIA-Safety/tree/main)
 
 ## Author
 
